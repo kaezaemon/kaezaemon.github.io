@@ -76,3 +76,77 @@ footer small{opacity:.85}
 .p-links a{padding:8px 20px;border-radius:999px;border:2px solid var(--main);color:var(--main);font-weight:700;font-size:14px}
 .p-links a:first-child{background:var(--main);color:#fff}
 @media(max-width:700px){.profile{grid-template-columns:1fr}}
+
+/* ギャラリー（CSSのみ） */
+.gallery{grid-column:1/-1;padding:40px 0 0}
+.gallery h2{margin-bottom:12px}
+.g-note{text-align:center;font-size:13px;margin-bottom:24px;opacity:.7}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+.g-item{display:block;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;box-shadow:0 6px 18px rgba(124,92,255,.15);transition:.2s}
+.g-item:hover{transform:translateY(-4px)}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block}
+.lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(20,15,40,.88);align-items:center;justify-content:center}
+.lb:target{display:flex}
+.lb-bg{position:absolute;inset:0;cursor:zoom-out}
+.lb>img{position:relative;max-width:80vw;max-height:86vh;border-radius:12px;pointer-events:none}
+.lb-close,.lb-prev,.lb-next{position:absolute;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.25);color:#fff;font-size:34px;line-height:1}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.5)}
+.lb-close{top:16px;right:16px}
+.lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb-next{right:12px;top:50%;transform:translateY(-50%)}
+
+/* 大きい写真のスライダー（CSSのみ） */
+.p-photo{position:relative}
+.slider input{display:none}
+.slide{display:none;width:100%;justify-content:center;align-items:flex-end}
+.slider input:nth-of-type(1):checked ~ .slide:nth-of-type(1){display:flex}
+.slider input:nth-of-type(2):checked ~ .slide:nth-of-type(2){display:flex}
+.slider input:nth-of-type(3):checked ~ .slide:nth-of-type(3){display:flex}
+.slider input:nth-of-type(4):checked ~ .slide:nth-of-type(4){display:flex}
+.slider input:nth-of-type(5):checked ~ .slide:nth-of-type(5){display:flex}
+.slider input:nth-of-type(6):checked ~ .slide:nth-of-type(6){display:flex}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.85);color:var(--main);font-size:32px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(124,92,255,.3);user-select:none;transition:.2s}
+.arrow:hover{background:var(--main);color:#fff}
+.arrow.prev{left:10px}
+.arrow.next{right:10px}
+
+/* キャスト一覧：横に自動でゆっくり流れる（CSSのみ） */
+#cast{max-width:none;padding-left:0;padding-right:0}
+.marquee{overflow:hidden;padding:70px 0 40px}
+.track{display:flex;width:max-content;animation:flow 80s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track .card{width:260px;margin-right:24px;flex:none}
+@keyframes flow{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto}}
+
+/* 左右の矢印で好きなキャストを選べる（CSSのみ） */
+.cast-slider{position:relative}
+.cast-slider>input{display:none}
+.cast-slider .arrow{top:48%;width:52px;height:52px;font-size:38px;z-index:5}
+.cast-slider .arrow.prev{left:14px}
+.cast-slider .arrow.next{right:14px}
+.cs-nav{display:none}
+.auto-btn{position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:5;padding:6px 20px;border-radius:999px;background:var(--main);color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+.track{transition:transform .6s ease}
+.cast-slider>input:not(#cs0):checked ~ .marquee .track{animation:none}
+#cs0:checked ~ .n0{display:block}
+#cs1:checked ~ .n1{display:block}
+#cs1:checked ~ .marquee .track{transform:translateX(-0px)}
+#cs2:checked ~ .n2{display:block}
+#cs2:checked ~ .marquee .track{transform:translateX(-284px)}
+#cs3:checked ~ .n3{display:block}
+#cs3:checked ~ .marquee .track{transform:translateX(-568px)}
+#cs4:checked ~ .n4{display:block}
+#cs4:checked ~ .marquee .track{transform:translateX(-852px)}
+#cs5:checked ~ .n5{display:block}
+#cs5:checked ~ .marquee .track{transform:translateX(-1136px)}
+#cs6:checked ~ .n6{display:block}
+#cs6:checked ~ .marquee .track{transform:translateX(-1420px)}
+#cs7:checked ~ .n7{display:block}
+#cs7:checked ~ .marquee .track{transform:translateX(-1704px)}
+#cs8:checked ~ .n8{display:block}
+#cs8:checked ~ .marquee .track{transform:translateX(-1988px)}
+#cs9:checked ~ .n9{display:block}
+#cs9:checked ~ .marquee .track{transform:translateX(-2272px)}
+#cs10:checked ~ .n10{display:block}
+#cs10:checked ~ .marquee .track{transform:translateX(-2556px)}
